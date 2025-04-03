@@ -6,11 +6,6 @@
     <title>Alfa Romeo 164 Q4 (1993)</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-config>
-        packages = ["requests"]
-    </py-config>
     <style>
         /* Image Highlighting */
         .gallery img {
@@ -20,27 +15,6 @@
         .gallery img:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Rotating Logo */
-        .rotate {
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Styling for the logo */
-        #logo {
-            width: 100px;
-            height: 100px;
-            transition: transform 0.3s;
         }
 
         /* Add more space at the bottom */
@@ -80,6 +54,18 @@
             // Check if the user has already accepted cookies
             if (localStorage.getItem("cookieConsent") === "true") {
                 document.getElementById("cookieConsent").style.display = "none";
+            }
+        }
+
+        async function loadArticle() {
+            const url = "https://pl.wikipedia.org/api/rest_v1/page/summary/Alfa_Romeo_164";
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const articleContent = `<h2>${data.title}</h2><p>${data.extract}</p>`;
+                document.getElementById("articleContent").innerHTML = articleContent;
+            } catch (error) {
+                console.error("Error fetching the article:", error);
             }
         }
     </script>
@@ -151,16 +137,7 @@
         <p>&copy; 2025 Strona poświęcona Alfa Romeo 164 Q4</p>
     </footer>
 
-    <button id="loadArticleButton">Wczytaj artykuł z Wikipedii</button>
+    <button id="loadArticleButton" onclick="loadArticle()">Wczytaj artykuł z Wikipedii</button>
     <div id="articleContent"></div>
-
-    <py-script src="wikipedia_loader.py"></py-script>
-    <py-script>
-        from pyscript import Element
-
-        # Connect the button click event to the load_article function
-        load_article_button = Element("loadArticleButton")
-        load_article_button.element.onclick = load_article
-    </py-script>
 </body>
 </html>
