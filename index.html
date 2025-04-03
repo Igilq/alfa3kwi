@@ -8,6 +8,9 @@
     <link rel="icon" href="logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+        packages = ["requests"]
+    </py-config>
     <style>
         /* Image Highlighting */
         .gallery img {
@@ -148,24 +151,16 @@
         <p>&copy; 2025 Strona poświęcona Alfa Romeo 164 Q4</p>
     </footer>
 
-    <button id="rotateButton">Uruchom obracanie logo</button>
-    <img id="logo" src="logo-kopia.png" alt="Logo">
+    <button id="loadArticleButton">Wczytaj artykuł z Wikipedii</button>
+    <div id="articleContent"></div>
 
+    <py-script src="wikipedia_loader.py"></py-script>
     <py-script>
         from pyscript import Element
-        import asyncio
 
-        async def rotate_logo():
-            logo = Element("logo")
-            logo.element.classList.add("rotate")
-
-        def start_rotation(_):
-            asyncio.ensure_future(rotate_logo())
-
-        # Connect the button click event to the start_rotation function
-        rotate_button = Element("rotateButton")
-        rotate_button.element.onclick = start_rotation
+        # Connect the button click event to the load_article function
+        load_article_button = Element("loadArticleButton")
+        load_article_button.element.onclick = load_article
     </py-script>
 </body>
 </html>
- 
