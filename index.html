@@ -23,10 +23,12 @@
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+
         /* Rotating Logo */
         .rotate {
             animation: spin 2s linear infinite;
         }
+
         @keyframes spin {
             from {
                 transform: rotate(0deg);
@@ -68,13 +70,14 @@
             localStorage.setItem("cookieConsent", "true");
         }
 
-        if (localStorage.getItem("cookieConsent") === "true") {
-            document.getElementById("cookieConsent").style.display = "none";
-        }
-
         window.onload = function() {
             var audio = document.getElementById('background-audio');
             audio.play();
+
+            // Check if the user has already accepted cookies
+            if (localStorage.getItem("cookieConsent") === "true") {
+                document.getElementById("cookieConsent").style.display = "none";
+            }
         }
     </script>
 
@@ -144,6 +147,7 @@
     <footer>
         <p>&copy; 2025 Strona poświęcona Alfa Romeo 164 Q4</p>
     </footer>
+
     <button id="rotateButton">Uruchom obracanie logo</button>
     <img id="logo" src="logo-kopia.png" alt="Logo">
 
