@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfa Romeo 164 Q4 (1993)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        /* Custom Cursor */
+        body {
+            cursor: url('path/to/your/cursor.cur'), auto;
+        }
+
+        /* Image Highlighting */
+        .gallery img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#home">Strona Główna</a></li>
+                <li><a href="#specs">Specyfikacja</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+        <h1>Alfa Romeo 164 Q4 (1993)</h1>
+    </header>
+
+    <audio id="background-audio" loop>
+        <source src="silnik.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function acceptCookieConsent() {
+            document.getElementById("cookieConsent").style.display = "none";
+            localStorage.setItem("cookieConsent", "true");
+        }
+
+        if (localStorage.getItem("cookieConsent") === "true") {
+            document.getElementById("cookieConsent").style.display = "none";
+        }
+
+        window.onload = function() {
+            var audio = document.getElementById('background-audio');
+            audio.play();
+        }
+    </script>
+
+    <main>
+        <section id="home">
+            <h2>Opis Samochodu</h2>
+            <p>Alfa 164 Q4 – produkowana od lutego 1994 roku, została wyposażona w stały napęd na cztery koła produkcji austriackiej firmy Steyr-Daimler-Puch kontrolowany elektronicznie. Model wykorzystywał najsilniejszą jednostkę – silnik 3.0 V6 24V o maksymalnej mocy wynoszącej 234 KM. Auto z zewnątrz można było rozróżnić od wersji QV poprzez emblemat Q4</p>
+        </section>
+
+        <section id="specs">
+            <h2>Specyfikacja Techniczna</h2>
+            <table>
+                <tr>
+                    <th>Parametr</th>
+                    <th>Wartość</th>
+                </tr>
+                <tr>
+                    <td>Silnik</td>
+                    <td>3.0 L V6 24V</td>
+                </tr>
+                <tr>
+                    <td>Moc</td>
+                    <td>230 KM</td>
+                </tr>
+                <tr>
+                    <td>Napęd</td>
+                    <td>Na cztery koła (Q4)</td>
+                </tr>
+                <tr>
+                    <td>Prędkość maksymalna</td>
+                    <td>245 km/h</td>
+                </tr>
+                <tr>
+                    <td>Przyspieszenie 0-100 km/h</td>
+                    <td>7.5 sekund</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="gallery">
+            <h2>Galeria</h2>
+            <div class="gallery">
+                <img src="alfa1.jpg" alt="Alfa Romeo 164 Q4">
+                <img src="alfa2.jpg" alt="Alfa Romeo 164 Q4">
+                <img src="alfa3.jpg" alt="Alfa Romeo 164 Q4">
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Formularz Kontaktowy</h2>
+            <form action="#" method="post">
+                <label for="name">Imię:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="message">Wiadomość:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+                <input type="submit" value="Wyślij">
+            </form>
+        </section>
+    </main>
+
+    <div class="cookie-consent" id="cookieConsent">
+        Ta strona używa ciasteczek, aby zapewnić najlepsze wrażenia. <button onclick="acceptCookieConsent()">Akceptuję</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Strona poświęcona Alfa Romeo 164 Q4</p>
+    </footer>
+</body>
+</html>
