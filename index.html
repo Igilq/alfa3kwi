@@ -21,6 +21,31 @@
         body {
             padding-bottom: 50px; /* Adjust the value as needed */
         }
+
+        /* Cookie Consent Styling */
+        .cookie-consent {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .cookie-consent button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .cookie-consent button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -38,7 +63,7 @@
 
     <audio id="background-audio" loop>
         <source src="silnik.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Twoja przeglądarka nie obsługuje elementu audio.
     </audio>
 
     <script>
@@ -65,7 +90,7 @@
                 const articleContent = `<h2>${data.title}</h2><p>${data.extract}</p>`;
                 document.getElementById("articleContent").innerHTML = articleContent;
             } catch (error) {
-                console.error("Error fetching the article:", error);
+                console.error("Błąd podczas pobierania artykułu:", error);
             }
         }
     </script>
@@ -73,7 +98,7 @@
     <main>
         <section id="home">
             <h2>Opis Samochodu</h2>
-            <p>Alfa 164 Q4 – produkowana od lutego 1994 roku, została wyposażona w stały napęd na cztery koła produkcji austriackiej firmy Steyr-Daimler-Puch kontrolowany elektronicznie. Model wykorzystywał najsilniejszą jednostkę – silnik 3.0 V6 24V o maksymalnej mocy wynoszącej 234 KM. Auto z zewnątrz można było rozróżnić od wersji QV poprzez emblemat Q4</p>
+            <p>Alfa 164 Q4 – produkowana od lutego 1994 roku, została wyposażona w stały napęd na cztery koła produkcji austriackiej firmy Steyr-Daimler-Puch kontrolowany elektronicznie. Model wykorzystywał najsilniejszą jednostkę – silnik 3.0 V6 24V o maksymalnej mocy wynoszącej 234 KM. Auto z zewnątrz można było rozróżnić od wersji QV poprzez emblemat Q4.</p>
         </section>
 
         <section id="specs">
@@ -119,11 +144,11 @@
             <h2>Formularz Kontaktowy</h2>
             <form action="#" method="post">
                 <label for="name">Imię:</label><br>
-                <input type="text" id="name" name="name"><br><br>
+                <input type="text" id="name" name="name" required><br><br>
                 <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email"><br><br>
+                <input type="email" id="email" name="email" required><br><br>
                 <label for="message">Wiadomość:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
                 <input type="submit" value="Wyślij">
             </form>
         </section>
@@ -141,3 +166,4 @@
     <div id="articleContent"></div>
 </body>
 </html>
+
