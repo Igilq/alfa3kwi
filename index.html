@@ -52,8 +52,8 @@
             audio.play();
 
             // Check if the user has already accepted cookies
-            if (localStorage.getItem("cookieConsent") === "true") {
-                document.getElementById("cookieConsent").style.display = "none";
+            if (localStorage.getItem("cookieConsent") !== "true") {
+                document.getElementById("cookieConsent").style.display = "block";
             }
         }
 
