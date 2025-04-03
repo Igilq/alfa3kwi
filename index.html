@@ -6,6 +6,8 @@
     <title>Alfa Romeo 164 Q4 (1993)</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <style>
         /* Custom Cursor */
         body {
@@ -20,6 +22,25 @@
         .gallery img:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        /* Rotating Logo */
+        .rotate {
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Styling for the logo */
+        #logo {
+            width: 100px;
+            height: 100px;
+            transition: transform 0.3s;
         }
     </style>
 </head>
@@ -123,5 +144,23 @@
     <footer>
         <p>&copy; 2025 Strona poświęcona Alfa Romeo 164 Q4</p>
     </footer>
+    <button id="rotateButton">Uruchom obracanie logo</button>
+    <img id="logo" src="path/to/your/logo.png" alt="Logo">
+
+    <py-script>
+        from pyscript import Element
+        import asyncio
+
+        async def rotate_logo():
+            logo = Element("logo")
+            logo.element.classList.add("rotate")
+
+        def start_rotation(_):
+            asyncio.ensure_future(rotate_logo())
+
+        # Connect the button click event to the start_rotation function
+        rotate_button = Element("rotateButton")
+        rotate_button.element.onclick = start_rotation
+    </py-script>
 </body>
 </html>
